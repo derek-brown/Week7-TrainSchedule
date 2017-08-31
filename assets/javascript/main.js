@@ -1,4 +1,3 @@
-  // Initialize Firebase
 var config = {
   apiKey: "AIzaSyBetvj1H9MQvqMb_v7clbVGXSUZ-orRPBk",
   authDomain: "q-train-schedule.firebaseapp.com",
@@ -60,8 +59,6 @@ $("#add-train").on("click", function(event){
 });
 
 dataRef.ref().on("child_added", function(childSnapshot) {
-  // full list of items to the well
-
   $('.trainSchedule').append("<tr class='table-row'>" +
    "<td class='col-md-3'>" + childSnapshot.val().trainName +
    "</td>" +
@@ -69,11 +66,10 @@ dataRef.ref().on("child_added", function(childSnapshot) {
    "</td>" +
    "<td class='col-md-2'>" + childSnapshot.val().frequency +
    "</td>" +
-   "<td class='col-md-2'>" + childSnapshot.val().nextTrainFormat + // Next Arrival Formula ()
+   "<td class='col-md-2'>" + childSnapshot.val().nextTrainFormat +
    "</td>" +
-   "<td class='col-md-2'>" + childSnapshot.val().timeToNextTrain + // Minutes Away Formula
+   "<td class='col-md-2'>" + childSnapshot.val().timeToNextTrain +
    "</td></tr>");
-// Handle the errors
 }, function(errorObject){
   //console.log("Errors handled: " + errorObject.code)
 });
